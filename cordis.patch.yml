@@ -1,0 +1,6 @@
+- insert:
+    - id: local-decision-trace
+      name: '@local/dsh-decision-trace'
+      config:
+        maxEntries: 800
+        maxDetailChars: 12000

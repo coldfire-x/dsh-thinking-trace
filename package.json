@@ -1,0 +1,37 @@
+{
+  "name": "@local/dsh-decision-trace",
+  "version": "1.0.0",
+  "description": "Read public task notes in a simple view and open related actions in Trajectory.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@11.28.5",
+  "engines": { "node": ">=22" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldfire-x/dsh-thinking-trace.git"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "trace.js", "client.js", "trace.test.js", "integration.test.js", "client.test.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "README.md", "LICENSE"],
+  "scripts": {
+    "check": "node --check index.js && node --check trace.js && node --check client.js",
+    "test": "node --test trace.test.js integration.test.js client.test.js"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.19.0",
+    "zod": "4.4.3"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
